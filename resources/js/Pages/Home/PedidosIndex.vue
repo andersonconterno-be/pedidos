@@ -50,7 +50,6 @@
                                 <div v-for="sabor in value.sabores" :key="sabor"
                                     class="flex bg-gray-100 text-gray-700 px-3 py-1 rounded-md items-center justify-between mt-2">
                                     {{ sabor }}
-                                    <Checkbox v-model="checked" binary />
                                 </div>
                             </div>
 
@@ -84,7 +83,6 @@
                                 <div v-for="sabor in value.sabores" :key="sabor"
                                     class="flex bg-gray-100 text-gray-700 px-3 py-1 rounded-md items-center justify-between mt-2">
                                     {{ sabor }}
-                                    <Checkbox v-model="checked" binary />
                                 </div>
                             </div>
 
@@ -123,7 +121,6 @@
                                 <div v-for="sabor in value.sabores" :key="sabor"
                                     class="flex bg-gray-100 text-gray-700 px-3 py-1 rounded-md items-center justify-between mt-2">
                                     {{ sabor }}
-                                    <Checkbox v-model="checked" binary />
                                 </div>
                             </div>
 
@@ -184,7 +181,7 @@ const doneOrder = async (firebaseKey) => {
             toast.success(response.data.message);
         })
         .catch(error => {
-            console.error('Error marking order as done:', error);
+            console.error(error);
             // Handle error (e.g., show an error message)
         });
 };
@@ -195,7 +192,7 @@ const finishOrder = async (firebaseKey) => {
             toast.success(response.data.message);
         })
         .catch(error => {
-            console.error('Error marking order as done:', error);
+            console.error(error);
             // Handle error (e.g., show an error message)
         });
 };
@@ -211,7 +208,7 @@ const returnFinishedOrder = async (firebaseKey) => {
             toast.success('Pedido retornado para "Pronto"');
         })
         .catch(error => {
-            console.error('Error returning order:', error);
+            console.error(error);
             // Handle error (e.g., show an error message)
         });
 };
@@ -227,7 +224,7 @@ const returnOrder = async (firebaseKey) => {
             toast.success('Pedido retornado para "Recebido"');
         })
         .catch(error => {
-            console.error('Error returning order:', error);
+            console.error(error);
             // Handle error (e.g., show an error message)
         });
 };

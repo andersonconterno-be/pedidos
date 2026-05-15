@@ -167,6 +167,23 @@ const pedidosEntregues = computed(() => pedidos.value.filter(p => p.status === '
 
 const sendOrder = async () => {
 
+    if(sabores.value.length === 0 && !nome.value) {
+        toast.warning('Preencha o nome do cliente e adicione pelo menos um sabor!');
+        return;
+    }
+
+
+    if(!nome.value) {
+        toast.warning('Insira o nome do cliente!');
+        return;
+    }
+
+    if(sabores.value.length === 0) {
+        toast.warning('Adicione pelo menos um sabor!');
+        return;
+    }
+    
+
     axios.post('/api/v1/send-order', { nome: nome.value, sabores: sabores.value, valor: sabores.value.length * 10 })
         .then(response => {
             toast.success(response.data.message);
@@ -179,6 +196,10 @@ const sendOrder = async () => {
 };
 
 const addSabor = (sabor) => {
+    if (!sabor) {
+        toast.warning('Escreva um sabor!');
+        return;
+    }
     sabores.value.push(sabor);
 };
 
