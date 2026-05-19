@@ -13,12 +13,12 @@ Route::get('/joel', function () {
 });
 
 Route::post('/login', [MatheusController::class, 'login']);
+
 Route::post('/logout', [MatheusController::class, 'logout']);
 
 Route::post('/cadastro', [MatheusController::class, 'cadastro']);
 
 Route::post('/esqueci-senha', [MatheusController::class, 'esqueciSenha']);
-
 
 Route::post('/send-order', [PedidoController::class, 'sendOrder']);
 

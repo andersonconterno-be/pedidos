@@ -1,8 +1,10 @@
 <template>
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
 
-<div class="flex flex-col gap-5">
 
+<div class="flex flex-col gap-5 border border-gray-300 rounded-md p-10 bg-white">
 
+    <h1 class="text-2xl font-bold mb-4">Bem vindo!</h1>
     <div class="flex flex-col gap-1">
         <InputText name="username" type="text" placeholder="Username" v-model="login" />
 
@@ -16,16 +18,20 @@
 
     </div>
     <div class="flex gap-5">
-        <Button  severity="secondary" label="Cadastrar" @click="cadastro" />
+        <Button  severity="info" label="Cadastrar" @click="cadastro" />
 
-        <Button  severity="danger" label="Logar" @click="logando" />
+        <Button  severity="success" label="Logar" @click="logando" />
     </div>
 
-    <p @click="esquecisenha" class="flex cursor-pointer" >Esqueci minha senha</p>
+    <p @click="esquecisenha" class="flex cursor-pointer">Esqueci minha senha</p>
+</div>
+
+
 </div>
 </template>
 <script setup>
 import axios from 'axios';
+import { Button } from 'primevue';
 import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
 

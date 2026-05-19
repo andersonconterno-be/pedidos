@@ -186,6 +186,18 @@ const doneOrder = async (firebaseKey) => {
         });
 };
 
+const logout = async () => {
+    axios.post('/api/v1/logout')
+        .then(response => {
+            toast.success('Logout realizado com sucesso!');
+            window.location.href = '/login'; // Redireciona para a página de login
+        })
+        .catch(error => {
+            console.error(error);
+            toast.error('Erro ao realizar logout. Tente novamente.');
+        });
+};
+
 const finishOrder = async (firebaseKey) => {
     axios.post('/api/v1/finish-order', { firebaseKey })
         .then(response => {

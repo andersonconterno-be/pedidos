@@ -46,8 +46,9 @@ class MatheusController extends Controller
 
     }
 
-    function logout(Request $request){
-        dd('logout');
+    function logout() {
+        Session::forget('token');
+        return Inertia::render('Login/LoginIndex');
     }
 
     function loginIndex() {

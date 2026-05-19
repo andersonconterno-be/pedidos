@@ -207,6 +207,18 @@ const removeSabor = (index) => {
     sabores.value.splice(index, 1);
 };
 
+const logout = async () => {
+    axios.post('/api/v1/logout')
+        .then(response => {
+            toast.success('Logout realizado com sucesso!');
+            window.location.href = '/login'; // Redireciona para a página de login
+        })
+        .catch(error => {
+            console.error(error);
+            toast.error('Erro ao realizar logout. Tente novamente.');
+        });
+};
+
 onMounted(() => {
     const pedidosRef = dbRef(db, 'pedidos');
     onValue(pedidosRef, (snapshot) => {
